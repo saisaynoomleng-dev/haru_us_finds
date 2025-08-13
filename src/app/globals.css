@@ -176,8 +176,8 @@
   --color-brand-accent-950: #420e0d;
 
   --color-brand-black-50: #36454f;
-  --color-brand-black-200: #3d4849;
-  --color-brand-black-100: #262626;
+  --color-brand-black-100: #3d4849;
+  --color-brand-black-200: #262626;
 
   /* typgography */
   --font-jost: var(--font-jost);
@@ -191,8 +191,10 @@
   --text-fs-400: 1.125rem;
   --text-fs-300: 1rem;
   --text-fs-200: 0.875rem;
+  --text-fs-100: 0.75rem;
 
   /* viewport */
+  --breakpoint-sm: 560px;
   --breakpoint-lg: 1000px;
   --breakpoint-md: 750px;
 }
@@ -202,9 +204,13 @@
     @apply scroll-smooth;
   }
   body {
-    @apply overflow-x-hidden min-h-dvh text-fs-400 font-jost leading-normal tracking-normal bg-brand-red-100 text-brand-black-100;
+    @apply overflow-x-hidden min-h-dvh text-fs-300 font-jost leading-normal tracking-normal bg-white text-brand-black-200;
   }
   p {
     @apply text-pretty;
   }
+}
+
+@utility padded {
+  @apply px-5 py-3 md:px-10 md:py-5;
 }

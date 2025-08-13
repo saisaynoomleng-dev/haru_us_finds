@@ -1,5 +1,20 @@
-import { type SchemaTypeDefinition } from 'sanity'
+import { type SchemaTypeDefinition } from 'sanity';
+import { productType } from './productType';
+import { brandType } from './brandType';
+import { blockContentType } from './components/blockContentType';
+import { imageType } from './components/imageType';
+import { categoryType } from './categoryType';
+import { contactType } from './contactType';
+import { subscriptionType } from './subscriptionType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [],
-}
+  types: [
+    productType,
+    brandType,
+    blockContentType,
+    imageType,
+    categoryType,
+    contactType,
+    subscriptionType,
+  ],
+};
