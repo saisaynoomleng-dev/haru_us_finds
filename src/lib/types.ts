@@ -6,9 +6,17 @@ export type BoundedProps = {
   variant?: 'padded' | 'unpadded';
 };
 
+// Title
 export type TitleProps = {
   children: React.ReactNode;
   className?: string;
   as?: 'h1' | 'h2' | 'h3' | 'h4';
   size?: 'lg' | 'md' | 'sm';
+};
+
+// CTA
+export type CTAProps = {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
 };

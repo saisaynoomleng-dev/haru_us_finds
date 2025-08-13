@@ -12,7 +12,7 @@ const Title = ({
   return (
     <Comp
       className={clsx(
-        'font-tenor text-balance',
+        'text-balance font-medium',
         size === 'sm' && 'text-fs-500 md:text-fs-600 lg:text-fs-600',
         size === 'md' && 'text-fs-600 md:text-fs-700 lg:text-fs-800',
         size === 'md' && 'text-fs-700 md:text-fs-800 lg:text-fs-900',

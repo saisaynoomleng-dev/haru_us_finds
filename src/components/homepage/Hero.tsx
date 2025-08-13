@@ -99,9 +99,7 @@ const Hero = () => {
               <Button>Shop Now</Button>
             </Link>
             <Link href="/shop">
-              <Button variant="border" className="text-white">
-                Shop All
-              </Button>
+              <Button variant="border">Shop All</Button>
             </Link>
           </div>
         </div>
