@@ -36,17 +36,17 @@ const ShopByCategories = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-3  gap-3">
+      <div className="grid grid-cols-3 gap-3">
         {CATEGORIES.map((cat) => (
           <Link
             key={cat.name}
             href={`/shop?category=${cat.name.toLowerCase()}`}
-            className="flex flex-col p-3 bg-brand-red-200 rounded-sm justify-center items-center group hover:scale-[1.01] transition-transform duration-200"
+            className="flex flex-col p-3 bg-brand-red-200 rounded-sm justify-center items-center group hover:scale-[1.01] transition-transform duration-200 gap-y-3"
           >
             <span className="text-brand-red-800 text-fs-800 group-hover:rotate-[20deg] transition-transform duration-200">
               {cat.icon}
             </span>
-            <p className="group-hover:tracking-widest transition-all duration-200">
+            <p className="group-hover:tracking-widest transition-all duration-200 text-brand-red-800 font-medium">
               {cat.name}
             </p>
           </Link>

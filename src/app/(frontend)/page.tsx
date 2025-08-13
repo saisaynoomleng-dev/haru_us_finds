@@ -12,6 +12,8 @@ export default async function Home() {
     <Bounded>
       <Hero />
 
+      {/* Brands Banner */}
+
       <ShopByCategories />
     </Bounded>
   );

@@ -65,7 +65,7 @@ const Hero = () => {
         <div className="relative z-20 col-start-1 row-start-1">
           <Image
             src={`/${allTabs[activeIndex].name}.webp`}
-            width={1200}
+            width={1600}
             height={800}
             alt={allTabs[activeIndex].category}
           />
@@ -84,12 +84,13 @@ const Hero = () => {
         >
           <Title
             size="sm"
-            className="text-white max-w-[60%] md:max-w-[80%] capitalize"
+            className="text-brand-black-50 max-w-[60%] md:max-w-[80%] capitalize"
             style={{
               color:
-                allTabs[activeIndex].category === 'sportwears'
-                  ? 'black'
-                  : 'white',
+                allTabs[activeIndex].category === 'electronics' ||
+                allTabs[activeIndex].category === 'sneakers'
+                  ? 'white'
+                  : '',
             }}
           >
             {allTabs[activeIndex].title}

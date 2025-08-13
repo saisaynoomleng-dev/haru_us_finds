@@ -194,6 +194,7 @@
   --text-fs-100: 0.75rem;
 
   /* viewport */
+  --breakpoint-sm: 560px;
   --breakpoint-lg: 1000px;
   --breakpoint-md: 750px;
 }

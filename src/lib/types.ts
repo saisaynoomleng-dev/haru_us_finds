@@ -20,3 +20,10 @@ export type CTAProps = {
   children: React.ReactNode;
   className?: string;
 };
+
+// Previous Form state
+export type PrevFormStateProps = {
+  status: string;
+  message: string;
+  field?: string;
+};
