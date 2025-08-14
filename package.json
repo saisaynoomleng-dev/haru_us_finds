@@ -10,6 +10,7 @@
     "typegen": "sanity schema extract --path=./src/sanity/extract.json && sanity typegen generate --enforce-required-fields"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-slot": "^1.2.3",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^4.3.0",

@@ -25,7 +25,7 @@ const Review = () => {
   );
 
   return (
-    <div className="padded flex flex-col gap-y-4 bg-brand-accent-100/50">
+    <div className="padded flex flex-col gap-y-4 ">
       <Title as="h2" size="sm">
         Leave us Your Experience
       </Title>

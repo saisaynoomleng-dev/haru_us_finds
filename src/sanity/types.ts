@@ -13,6 +13,65 @@
  */
 
 // Source: schema.json
+export type Faq = {
+  _id: string;
+  _type: 'faq';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  faqs?: Array<{
+    question?: string;
+    answer?: Array<
+      | {
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: 'span';
+            _key: string;
+          }>;
+          style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote';
+          listItem?: 'bullet';
+          markDefs?: Array<{
+            href?: string;
+            _type: 'link';
+            _key: string;
+          }>;
+          level?: number;
+          _type: 'block';
+          _key: string;
+        }
+      | {
+          asset?: {
+            _ref: string;
+            _type: 'reference';
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: 'image';
+          _key: string;
+        }
+    >;
+    _key: string;
+  }>;
+};
+
+export type Review = {
+  _id: string;
+  _type: 'review';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  rating?: number;
+  message?: string;
+};
+
 export type Subscription = {
   _id: string;
   _type: 'subscription';
@@ -286,6 +345,8 @@ export type SanityAssetSourceData = {
 };
 
 export type AllSanitySchemaTypes =
+  | Faq
+  | Review
   | Subscription
   | Contact
   | BlockContent
@@ -324,11 +385,55 @@ export type PRODUCTS_QUERYResult = Array<{
   }> | null;
   slug: Slug | null;
 }>;
+// Variable: FAQS_QUERY
+// Query: *[_type == 'faq' && defined(slug.current)]| order(title asc){  title,  slug,  faqs[]{    question,    answer  } }
+export type FAQS_QUERYResult = Array<{
+  title: string | null;
+  slug: Slug | null;
+  faqs: Array<{
+    question: string | null;
+    answer: Array<
+      | {
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: 'span';
+            _key: string;
+          }>;
+          style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'normal';
+          listItem?: 'bullet';
+          markDefs?: Array<{
+            href?: string;
+            _type: 'link';
+            _key: string;
+          }>;
+          level?: number;
+          _type: 'block';
+          _key: string;
+        }
+      | {
+          asset?: {
+            _ref: string;
+            _type: 'reference';
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+          };
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          alt?: string;
+          _type: 'image';
+          _key: string;
+        }
+    > | null;
+  }> | null;
+}>;
 
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     "*[_type == 'product'\n && defined(slug.current)]\n |order(_createdAt desc)\n {\n  name,\n  price,\n  brand->{\n    name\n  },\n  _createdAt,\n  mainImages[]{\n    asset->{url},\n    alt\n  },\n  slug\n }": PRODUCTS_QUERYResult;
+    "*[_type == 'faq'\n && defined(slug.current)]\n| order(title asc)\n{\n  title,\n  slug,\n  faqs[]{\n    question,\n    answer\n  }\n }": FAQS_QUERYResult;
   }
 }

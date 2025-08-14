@@ -1,3 +1,4 @@
+import { FaQuestion } from 'react-icons/fa';
 import { GiConverseShoe } from 'react-icons/gi';
 import {
   MdCategory,
@@ -28,4 +29,5 @@ export const structure: StructureResolver = (S) =>
         .title('Subscriptions')
         .icon(RiMoneyDollarCircleFill),
       S.documentTypeListItem('review').title('Reviews').icon(MdOutlineReviews),
+      S.documentTypeListItem('faq').title('FAQs').icon(FaQuestion),
     ]);
