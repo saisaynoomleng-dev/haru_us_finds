@@ -13,16 +13,16 @@ const ProductCard = (props: NonNullable<PRODUCTS_QUERYResult>[number]) => {
   return (
     <Link
       href={`/shop/${slug?.current}`}
-      className="flex flex-col h-[330px] w-[250px] p-5 group shadow-sm"
+      className="flex flex-col h-[350px] w-[250px] p-5 group shadow-sm"
     >
-      <div className="overflow-hidden p-3 h-[200px]">
+      <div className="overflow-hidden pt-2 h-[200px]">
         {imageURL ? (
           <Image
             src={urlFor(imageURL).format('webp').url()}
             width={200}
             height={200}
             alt={name || ''}
-            className="mx-auto w-fit group-hover:scale-[1.05] transition-transform duration-200"
+            className="mx-auto max-h-[180px] w-fit group-hover:scale-[1.05] transition-transform duration-200"
           />
         ) : null}
       </div>

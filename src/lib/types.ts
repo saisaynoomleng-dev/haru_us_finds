@@ -26,4 +26,5 @@ export type PrevFormStateProps = {
   status: string;
   message: string;
   field?: string;
+  completeForm?: boolean;
 };

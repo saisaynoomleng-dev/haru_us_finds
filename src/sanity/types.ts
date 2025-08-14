@@ -13,6 +13,27 @@
  */
 
 // Source: schema.json
+export type Subscription = {
+  _id: string;
+  _type: 'subscription';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  email?: string;
+};
+
+export type Contact = {
+  _id: string;
+  _type: 'contact';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+};
+
 export type BlockContent = Array<
   | {
       children?: Array<{
@@ -265,6 +286,8 @@ export type SanityAssetSourceData = {
 };
 
 export type AllSanitySchemaTypes =
+  | Subscription
+  | Contact
   | BlockContent
   | Product
   | Category
@@ -285,13 +308,14 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: PRODUCTS_QUERY
-// Query: *[_type == 'product' && defined(slug.current)] |order(_createdAt desc) {  name,  price,  brand->{    name  },  mainImages[]{    asset->{url},    alt  },  slug }
+// Query: *[_type == 'product' && defined(slug.current)] |order(_createdAt desc) {  name,  price,  brand->{    name  },  _createdAt,  mainImages[]{    asset->{url},    alt  },  slug }
 export type PRODUCTS_QUERYResult = Array<{
   name: string | null;
   price: number | null;
   brand: {
     name: string | null;
   } | null;
+  _createdAt: string;
   mainImages: Array<{
     asset: {
       url: string | null;
@@ -305,6 +329,6 @@ export type PRODUCTS_QUERYResult = Array<{
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
-    "*[_type == 'product'\n && defined(slug.current)]\n |order(_createdAt desc)\n {\n  name,\n  price,\n  brand->{\n    name\n  },\n  mainImages[]{\n    asset->{url},\n    alt\n  },\n  slug\n }": PRODUCTS_QUERYResult;
+    "*[_type == 'product'\n && defined(slug.current)]\n |order(_createdAt desc)\n {\n  name,\n  price,\n  brand->{\n    name\n  },\n  _createdAt,\n  mainImages[]{\n    asset->{url},\n    alt\n  },\n  slug\n }": PRODUCTS_QUERYResult;
   }
 }
