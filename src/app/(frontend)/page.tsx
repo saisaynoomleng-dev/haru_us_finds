@@ -32,6 +32,13 @@ export default async function Home() {
 
       {/* Brands Banner */}
 
+      <div className="padded text-center">
+        <p className="font-medium">
+          We work with multiple suppliers to provide wholesale options.{' '}
+          <CTA href="/contact-us">Contact Us</CTA> for more details.
+        </p>
+      </div>
+
       <ShopByCategories />
 
       {/* Latest Products */}
@@ -57,7 +64,12 @@ export default async function Home() {
 
         {faqs.map((faq) =>
           faq.faqs?.map((q) => (
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion
+              key={q.question}
+              type="single"
+              collapsible
+              className="w-full"
+            >
               <AccordionItem value={q.question || ''}>
                 <AccordionTrigger>{q.question}</AccordionTrigger>
                 {q.answer && (

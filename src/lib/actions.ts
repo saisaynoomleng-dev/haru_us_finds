@@ -93,3 +93,68 @@ export const handleReview = async (
     };
   }
 };
+
+export const handleContact = async (
+  prevStat: PrevFormStateProps,
+  formData: FormData,
+): Promise<{ status: string; message: string; field?: string }> => {
+  const name = formData.get('name')?.toString().trim() || '';
+  const email = formData.get('email')?.toString().trim() || '';
+  const phone = formData.get('phone')?.toString().trim() || '';
+  const message = formData.get('message')?.toString().trim() || '';
+  const reg_email = /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+
+  if (!name) {
+    return {
+      status: 'error',
+      message: 'Name field cannot be empty!',
+      field: 'name',
+    };
+  }
+
+  if (!email) {
+    return {
+      status: 'error',
+      message: 'Email field cannot be empty!',
+      field: 'email',
+    };
+  }
+
+  if (!reg_email.test(email)) {
+    return {
+      status: 'error',
+      message: 'Must be a valid email address!',
+      field: 'email',
+    };
+  }
+
+  if (!message) {
+    return {
+      status: 'error',
+      message:
+        'Message field cannot be empty and must have at least 10 characters',
+      field: 'message',
+    };
+  }
+
+  try {
+    await client.create({
+      _type: 'contact',
+      name,
+      email,
+      phone,
+      message,
+    });
+
+    return {
+      status: 'success',
+      message: 'Thank you! Our team will be in touch shortly.',
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      status: 'error',
+      message: 'Something went wrong! Try again later!',
+    };
+  }
+};
