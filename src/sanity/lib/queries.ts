@@ -16,3 +16,15 @@ export const PRODUCTS_QUERY = defineQuery(`*[_type == 'product'
   },
   slug
  }`);
+
+export const FAQS_QUERY = defineQuery(`*[_type == 'faq'
+ && defined(slug.current)]
+| order(title asc)
+{
+  title,
+  slug,
+  faqs[]{
+    question,
+    answer
+  }
+ }`);
