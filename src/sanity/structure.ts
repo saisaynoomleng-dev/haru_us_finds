@@ -1,5 +1,9 @@
 import { GiConverseShoe } from 'react-icons/gi';
-import { MdCategory, MdOutlinePhoneCallback } from 'react-icons/md';
+import {
+  MdCategory,
+  MdOutlinePhoneCallback,
+  MdOutlineReviews,
+} from 'react-icons/md';
 import { RiMoneyDollarCircleFill } from 'react-icons/ri';
 import { SiNike } from 'react-icons/si';
 import type { StructureResolver } from 'sanity/structure';
@@ -23,4 +27,5 @@ export const structure: StructureResolver = (S) =>
       S.documentTypeListItem('subscription')
         .title('Subscriptions')
         .icon(RiMoneyDollarCircleFill),
+      S.documentTypeListItem('review').title('Reviews').icon(MdOutlineReviews),
     ]);

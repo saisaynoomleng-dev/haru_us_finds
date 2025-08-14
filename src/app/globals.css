@@ -214,3 +214,11 @@
 @utility padded {
   @apply px-5 py-3 md:px-10 md:py-5;
 }
+
+@utility form-label {
+  @apply block after:content-['*'] after:ml-0.5 after:text-brand-red-600;
+}
+
+@utility form-error-message {
+  @apply italic text-red-500 text-fs-200 text-left;
+}

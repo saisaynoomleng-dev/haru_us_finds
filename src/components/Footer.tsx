@@ -115,11 +115,9 @@ const Footer = () => {
             <label htmlFor="email" className="sr-only">
               Email
             </label>
-            <Input name="email" autoComplete="email" />
+            <Input name="email" autoComplete="email" id="email" />
             {state.status === 'error' && (
-              <p className="italic text-red-500 text-fs-200 text-left">
-                {state.message}
-              </p>
+              <p className="form-error-message">{state.message}</p>
             )}
           </div>
 

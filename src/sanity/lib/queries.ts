@@ -9,6 +9,7 @@ export const PRODUCTS_QUERY = defineQuery(`*[_type == 'product'
   brand->{
     name
   },
+  _createdAt,
   mainImages[]{
     asset->{url},
     alt

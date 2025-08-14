@@ -6,6 +6,7 @@ import { imageType } from './components/imageType';
 import { categoryType } from './categoryType';
 import { contactType } from './contactType';
 import { subscriptionType } from './subscriptionType';
+import { reviewType } from './reviewType';
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -16,5 +17,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     categoryType,
     contactType,
     subscriptionType,
+    reviewType,
   ],
 };
