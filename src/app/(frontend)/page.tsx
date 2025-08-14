@@ -35,7 +35,7 @@ export default async function Home() {
       <div className="padded text-center">
         <p className="font-medium">
           We work with multiple suppliers to provide wholesale options.{' '}
-          <CTA href="/contact-us">Contact Us</CTA> for more details.
+          <CTA href="/contact-us">Contact Us </CTA> for more details.
         </p>
       </div>
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import ComingSoon from '@/components/ComingSoon';
 
 const ShippingPolicy = () => {
-  return <div>ShippingPolicy</div>;
+  return <ComingSoon />;
 };
 
 export default ShippingPolicy;

@@ -10,9 +10,9 @@ import { FaFacebook, FaTiktok } from 'react-icons/fa';
 import { useActionState } from 'react';
 import { handleSubscription } from '@/lib/actions';
 import LoadingDot from './LoadingDot';
+import CTA from './CTA';
 
 const COMPANY_LINKS = [
-  { name: 'About Us', url: '/about-us' },
   { name: 'Contact Us', url: '/contact-us' },
   { name: 'FAQ', url: '/faq' },
 ];
@@ -126,6 +126,12 @@ const Footer = () => {
               {isPending ? <LoadingDot /> : <GrSend />}
             </button>
           </div>
+
+          <p className="text-right text-fs-200 my-2">
+            By subscribing, you agree to the{' '}
+            <CTA href="/terms-of-service">Terms of Service</CTA> &{' '}
+            <CTA href="/privacy-policy">Privacy Policy</CTA>.
+          </p>
         </Form>
 
         <div className="flex justify-center items center gap-x-5">
