@@ -1,7 +1,7 @@
-import React from 'react';
+import ComingSoon from '@/components/ComingSoon';
 
 const TermsOfServicePage = () => {
-  return <div>TermsOfServicePage</div>;
+  return <ComingSoon />;
 };
 
 export default TermsOfServicePage;
