@@ -13,36 +13,42 @@ const allTabs = [
     category: 'cosmetics',
     title: 'Feel Fresh, Look Radiant',
     offset: 'right',
+    url: '/shop?category=beauty',
   },
   {
     name: 'hero-2',
     category: 'bags',
     title: 'Carry Elegance, Own the Moment',
     offset: 'left',
+    url: '/shop?category=bags',
   },
   {
     name: 'hero-3',
     category: 'supplements',
     title: 'Fuel your body, power your life',
     offset: 'right',
+    url: '/shop?category=supplements',
   },
   {
     name: 'hero-4',
     category: 'sneakers',
     title: 'Step Into Style, Walk with Confidence',
     offset: 'left',
+    url: '/shop?category=shoes',
   },
   {
     name: 'hero-5',
     category: 'sportwears',
     title: 'Train in Style, perform at your best',
     offset: 'right',
+    url: '/shop?category=sportwears',
   },
   {
     name: 'hero-6',
     category: 'electronics',
     title: 'Upgrade your gear, unlock your potential',
     offset: 'right',
+    url: '/shop?category=electronics',
   },
 ];
 
@@ -60,7 +66,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div className="relative pt-20">
       <div className="grid relative grid-cols-1">
         <div className="relative z-20 col-start-1 row-start-1">
           <Image
@@ -72,7 +78,7 @@ const Hero = () => {
         </div>
 
         <div
-          className="grid col-start-1 row-start-1 relative z-50 px-5 self-center gap-y-3"
+          className="grid col-start-1 row-start-1 relative z-20 px-5 self-center gap-y-3"
           style={{
             justifySelf:
               allTabs[activeIndex].offset === 'right' ? 'start' : 'end',
@@ -96,7 +102,7 @@ const Hero = () => {
             {allTabs[activeIndex].title}
           </Title>
           <div className="flex items-center gap-x-3">
-            <Link href="/shop">
+            <Link href={allTabs[activeIndex].url}>
               <Button>Shop Now</Button>
             </Link>
             <Link href="/shop">
@@ -106,7 +112,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="flex absolute bottom-4 left-[50%] translate-x-[-50%] z-50 items-center justify-center gap-x-3">
+      <div className="flex absolute bottom-4 left-[50%] translate-x-[-50%] z-20 items-center justify-center gap-x-3">
         {allTabs.map((tab, i) => (
           <button
             key={tab.title}
